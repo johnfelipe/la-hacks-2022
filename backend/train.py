@@ -34,18 +34,18 @@ Retrieve the zipped datafiles and unzip them into directories.
 Uncomment the lines for the sets you wish to use.
 """
 
-!wget https://repositori.upf.edu/bitstream/handle/10230/42894/Z.zip  # Set A
-# !wget https://repositori.upf.edu/bitstream/handle/10230/42894/O.zip  # Set B
-# !wget https://repositori.upf.edu/bitstream/handle/10230/42894/N.zip  # Set C
-# !wget https://repositori.upf.edu/bitstream/handle/10230/42894/F.zip  # Set D
-!wget https://repositori.upf.edu/bitstream/handle/10230/42894/S.zip  # Set E
+# !wget https://repositori.upf.edu/bitstream/handle/10230/42894/Z.zip  # Set A
+# # !wget https://repositori.upf.edu/bitstream/handle/10230/42894/O.zip  # Set B
+# # !wget https://repositori.upf.edu/bitstream/handle/10230/42894/N.zip  # Set C
+# # !wget https://repositori.upf.edu/bitstream/handle/10230/42894/F.zip  # Set D
+# !wget https://repositori.upf.edu/bitstream/handle/10230/42894/S.zip  # Set E
 
-# -d allows you to create a directory to save the contents of the unzipped file
-!unzip Z.zip -d 'Set A' 
-# !unzip O.zip -d 'Set B'
-# !unzip N.zip -d 'Set C'
-# !unzip F.zip -d 'Set D'
-!unzip S.zip -d 'Set E'
+# # -d allows you to create a directory to save the contents of the unzipped file
+# !unzip Z.zip -d 'Set A' 
+# # !unzip O.zip -d 'Set B'
+# # !unzip N.zip -d 'Set C'
+# # !unzip F.zip -d 'Set D'
+# !unzip S.zip -d 'Set E'
 
 """Next, we import the libraries needed to store and visualize this data. ```numpy``` and ```matplotlib.pyplot``` are fairly obvious; we've used them countless times to work with EEG data in previous workshops. The ```os``` library will be used to iterate through all the datafiles so that we can load them into an list. The ```tqdm``` library is optional; it's used to display loading bars that show the progress of a loop since loading all this data may take a while."""
 
@@ -102,30 +102,30 @@ and plot them.
 """
 import random
 
-plt.figure(figsize=(20, 10))
+# plt.figure(figsize=(20, 10))
 
-# Samples from Set A
-samples_a = [] 
-while len(samples_a) < 4:
-  curr_idx = random.randint(0, len(all_data))
-  if (all_data[curr_idx][1] == LABEL_A):
-    samples_a.append(all_data[curr_idx][0])
+# # Samples from Set A
+# samples_a = [] 
+# while len(samples_a) < 4:
+#   curr_idx = random.randint(0, len(all_data))
+#   if (all_data[curr_idx][1] == LABEL_A):
+#     samples_a.append(all_data[curr_idx][0])
 
-# Samples from Set E
-samples_e = []
-while len(samples_e) < 4:
-  curr_idx = random.randint(0, len(all_data))
-  if (all_data[curr_idx][1] == LABEL_E):
-    samples_e.append(all_data[curr_idx][0])
+# # Samples from Set E
+# samples_e = []
+# while len(samples_e) < 4:
+#   curr_idx = random.randint(0, len(all_data))
+#   if (all_data[curr_idx][1] == LABEL_E):
+#     samples_e.append(all_data[curr_idx][0])
 
-for i in range(0, 4):
-  plt.subplot(4,2, 1 + i*2)
-  plt.plot(samples_a[i])
-  plt.subplot(4,2,2 + i*2)
-  plt.plot(samples_e[i])
+# for i in range(0, 4):
+#   plt.subplot(4,2, 1 + i*2)
+#   plt.plot(samples_a[i])
+#   plt.subplot(4,2,2 + i*2)
+#   plt.plot(samples_e[i])
 
-plt.suptitle('Class A vs Class E', fontsize=20)
-plt.show()
+# plt.suptitle('Class A vs Class E', fontsize=20)
+# plt.show()
 
 """## Preparing the Data
 
@@ -174,6 +174,7 @@ from keras.models import Sequential
 from keras.layers import Input, Dense, Dropout, Activation
 from keras.layers import Embedding
 from keras.layers import LSTM
+from keras.callbacks import ModelCheckpoint
 
 hidden_size = 64
 
@@ -218,7 +219,13 @@ Note: change your runtime to make use of GPU (```Runtime``` > ```Change runtime 
 batch_size = 16
 nb_epoch = 20
 
-history = model.fit(X_train, Y_train, validation_split=0.2, batch_size=batch_size, epochs=nb_epoch)
+checkpoint_path = "training_1/cp.ckpt"
+checkpoint_dir = os.path.dirname(checkpoint_path)
+
+# Create a callback that saves the model's weights
+cp_callback = ModelCheckpoint(filepath=checkpoint_path, save_weights_only=True, verbose=1)
+
+history = model.fit(X_train, Y_train, validation_split=0.2, batch_size=batch_size, epochs=nb_epoch, callbakcs=[cp_callback])
 
 """```model.fit()``` returns a history object, which we can use to see the history of training loss and metrics to evaluate the training process."""
 
