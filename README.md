@@ -10,33 +10,33 @@ brew install node
 
 git clone https://github.com/yuesha-yc/la-hacks-2022.git
 
-Go to backend directory
+## Go to backend directory
 
 cd backend
 
-Setup virtual environment
+## Setup virtual environment
 
 python3 -m venv venv
 
-If you are on windows, use 
+## If you are on windows, use 
 
 python -m venv <path>
 
-Next activate this environment
+## Next activate this environment
 
 source venv/bin/activate
 
-Install packages
+## Install packages
 
 pip3 install flask tensorflow tqdm scikit-learn matplotlib
 
-# Run server on local host
+## Run server on local host
 
-Run the command to start flask
+## Run the command to start flask
 
 python3 server.py
 
-Run the command to start react
+## Run the command to start react
 
 npm start
 
