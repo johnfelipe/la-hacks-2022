@@ -3,10 +3,6 @@ from keras.models import Sequential
 checkpoint_path = "training_1/cp.ckpt"
 checkpoint_dir = os.path.dirname(checkpoint_path)
 
-'''
-Return the prediction result given 
-'''
-
 from keras.models import Sequential
 from keras.layers import Input, Dense, Dropout, Activation
 from keras.layers import Embedding
@@ -39,6 +35,10 @@ model.add(Activation('sigmoid'))
 # Compile the model, specifying the loss function and optimizer to use
 model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['mae', 'acc'])
 
+
+'''
+Return the prediction result given 
+'''
 def predict(data):
     # Loads the weights
     model.load_weights(checkpoint_path)
