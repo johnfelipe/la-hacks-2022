@@ -1,5 +1,11 @@
 # LA Hacks 2022 Project
 
+# Frontend Build Guide
+
+Use Homebrew to install Node
+
+brew install node
+
 ## Build Guideline
 
 git clone https://github.com/yuesha-yc/la-hacks-2022.git
@@ -26,10 +32,12 @@ pip3 install flask tensorflow tqdm scikit-learn matplotlib
 
 # Run server on local host
 
-Run the command:
+Run the command to start flask
 
 python3 server.py
 
+Run the command to start react
 
+npm start
 
 
