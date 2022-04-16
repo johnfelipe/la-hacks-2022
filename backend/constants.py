@@ -1,0 +1,2 @@
+BATCH_SIZE = 16
+NB_EPOCH = 20
