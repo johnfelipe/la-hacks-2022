@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+  <script src="script.js" charset="utf-8"></script>
+</head>
+<body>
+  <header>
+    <section class="head">
+      <div class="container flex1">
+        <div class="left flex1">
+          <div class="search flex">
+            <i class="fas fa-search"></i>
+            <input type="text" name="" value="" placeholder="Search...">
+          </div>
+          <div class="select">
+            <select>
+              <option>Location</option>
+              <option>California</option>
+              <option>New York</option>
+              <option>Ohio</option>
+              <option>Florida</option>
+            </select>
+          </div>
+        </div>
+        <div class="right flex ">
+          <div class="img">
+            <img src="https://img.icons8.com/color/24/000000/usa.png" />
+          </div>
+          <div class="admin flex">
+            <img src="image/user.jpg" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="menu">
+      <div class="container">
+        <div class="navbar">
+          <nav>
+            <ul id="menuitem">
+              <li>
+                <a href="#">
+                  <span class="material-icons"> home </span>
+                  <h5>Dashboard</h5>
+                  <i class="fas fa-chevron-down"></i>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <label class="fa fa-bars" onclick="menutoggle()"></label>
+        </div>
+      </div>
+    </section>
+  </header>
+  <script>
+    var menuitem = document.getElementById("menuitem");
+    menuitem.style.maxHeight = "0px";
+    function menutoggle() {
+      if (menuitem.style.maxHeight == '0px') {
+        menuitem.style.maxHeight = "30vh"
+      } else {
+        menuitem.style.maxHeight = "0px"
+      }
+    }
+    window.addEventListener("scroll", function() {
+      var header = document.querySelector("header");
+      header.classList.toggle("sticky", window.scrollY > 50);
+    })
+  </script>
+  <section class="home">
+    <div class="container">
+      <div class="heading flex1">
+      </div>
+      <div class="content flex">
+        <div class="content_left">
+          <div class="top">
+            <div class="wlecome flex1">
+              <div class="text">
+                <h3>Welcome Back !</h3>
+                <label>Epilepsis Dashboard</label>
+              </div>
+              <div class="img">
+                <img src="image/img2.png" alt="">
+              </div>
+            </div>
+            <div class="profile flex1">
+              <div class="box">
+                <div class="image">
+                  <img src="image/user.jpg" alt="">
+                </div>
+                <div class="text">
+                  <p>Katie Smith</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="earning">
+            <div class="flex1">
+              <div class="box">
+                <h3>Health Check</h3>
+                <label>This Month</label>
+                <h2>Last Checked</h2>
+                <p> <span>7% <i class="fas fa-long-arrow-up"></i> </span> Symptoms from previous period </p>
+                <button>
+                  View More
+                  <i class="fas fa-chevron-down"></i>
+                </button>
+              </div>
+              <div class="chart box">
+                <div>
+                  <div id="chart"></div>
+                </div>
+              </div>
+            </div>
+            <p>Look for more detailed stats of your health.</p>
+          </div>
+        </div>
+        <div class="content_right">
+          <div class="right_top grid">
+            <div class="rbox flex1">
+              <div class="text">
+                <h4>Medications Recommended To You</h4>
+                <h3>See the list ></h3>
+              </div>
+              <div class="icon">
+                <span class="material-icons"> file_download</span>
+              </div>
+            </div>
+            <div class="rbox flex1">
+              <div class="text">
+                <h4>Your Appointment Details</h4>
+                <h3>See the list > </h3>
+              </div>
+              <div class="icon">
+                <span class="material-icons"> file_download </span>
+              </div>
+            </div>
+            <div class="rbox flex1">
+              <div class="text">
+                <h4>Consult With Doctor</h4>
+                <h3>See the list ></h3>
+              </div>
+              <div class="icon">
+                <span class="material-icons"> file_download </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bar">
+            <div class="heading flex1">
+              <h5>EEG Reports</h5>
+              <div class="date flex1">
+                <h4>Yesterday</h4>
+                <h4>Today</h4>
+                <button>Tommorrow</button>
+              </div>
+            </div>
+            <div id="bars">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="wrapper">
+    <div class="container grid">
+      <div class="box"> 
+        <h3>Decsription</h3>
+        
+        <div class="content">
+          <div class="abox flex1">
+            <i class="far fa-arrow-alt-circle-right"></i>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+          </div>
+          
+          <div class="abox flex1">
+            <i class="far fa-arrow-alt-circle-right"></i>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+          </div>
+          <button>
+            View More
+            <i class="fas fa-long-arrow-alt-right"></i>
+          </button>
+        </div>
+      </div>
+      <div class="box">
+        <h3>Details</h3>
+        <div class="content">
+          <div class="abox flex1">
+            <i class="far fa-arrow-alt-circle-right"></i>
+            <label>22 Nov</label>
+            <span class="fas fa-long-arrow-alt-right"></span>
+            <p>Lorem Ipsum</p>
+          </div>
+          <div class="abox flex1">
+            <i class="far fa-arrow-alt-circle-right"></i>
+            <label>17 Nov</label>
+            <span class="fas fa-long-arrow-alt-right"></span>
+            <p>Lorem Ipsum</p>
+          </div>
+          <div class="abox flex1">
+            <i class="far fa-arrow-alt-circle-right"></i>
+            <label>15 Nov</label>
+            <span class="fas fa-long-arrow-alt-right"></span>
+            <p>Lorem Ipsum</p>
+          </div>
+          <div class="abox flex1">
+            <i class="far fa-arrow-alt-circle-right"></i>
+            <label>18 Nov</label>
+            <span class="fas fa-long-arrow-alt-right"></span>
+            <p>Lorem Ipsum</p>
+          </div>
+          <div class="abox flex1">
+            <i class="far fa-arrow-alt-circle-right"></i>
+            <label>18 Nov</label>
+            <span class="fas fa-long-arrow-alt-right"></span>
+            <p>Lorem Ipsum</p>
+          </div>
+          <button>
+            View More
+            <i class="fas fa-long-arrow-alt-right"></i>
+          </button>
+        </div>
+      </div>
+      <div class="box location">
+        <div class="text ">
+          <h3>EEG Data Chart </h3>
+          <img src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/889AEE/external-location-map-pin-flatart-icons-outline-flatarticons-10.png" />
+          <h2>30 min symptoms check</h2>
+          <span>Problems Caused</span>
+        </div>
+        <div id="loac">
+        </div>
+      </div>
+    </div>
+  </section>
+      <div class="pagination">
+        <ul>
+          <li><i class="fas fa-chevron-left"></i> </li>
+          <li class="active">1</li>
+          <li>2</li>
+          <li>3</li>
+          <li><i class="fas fa-chevron-right"></i> </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script src="script.js" charset="utf-8"></script>
+</body>
+</html>
