@@ -118,7 +118,9 @@ def evaluate_model():
 data_index: integer from 0 to 39
 returns: integer from 0 to 1
 """
-def predict_label(data_index):
+def predict_label():
+    data_index = np.random.randint(0, len(X_test))
+    print(data_index)
     model = tf.keras.models.load_model('saved_model/my_model.h5')
     results = model.predict(X_test[data_index].reshape(1, 4097, 1))
     formated_percentage = round(results[0][0] * 100, 2)

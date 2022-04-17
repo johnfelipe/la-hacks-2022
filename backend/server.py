@@ -13,7 +13,7 @@ def index():
 
 @app.route("/prediction")
 def prediction():
-    return {"percentage_seizure_occurrence": train.predict_label(2)}
+    return {"percentage_seizure_occurrence": train.predict_label()}
 
 @app.route("/eeg/random")
 def random_data():
