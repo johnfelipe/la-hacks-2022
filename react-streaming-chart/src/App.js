@@ -5,10 +5,10 @@ import { StreamingPlugin, RealTimeScale } from "chartjs-plugin-streaming";
 Chart.register(StreamingPlugin, RealTimeScale);
 
 function App() {
-
   const data = {
-    datasets: [{
-      label: "Dataset 1",
+    datasets: [
+      {
+        label: "Dataset 1",
 
         fill: false,
         lineTension: 0.4,
@@ -18,9 +18,10 @@ function App() {
         pointRadius: 0,
         showLine: true,
         data: [],
-    }]
-  }
-  
+      },
+    ],
+  };
+
   const options = {
     scales: {
       xAxes: [
@@ -53,21 +54,16 @@ function App() {
           },
         },
       ],
-    }
-  }
+    },
+  };
 
   return (
     <div>
       <div>
-        <Line data={data} options={options} width={2000} height={1000} />
+        <Line data={data} options={options} width={400} height={200} />
       </div>
     </div>
   );
-}
-
-<<<<<<< HEAD
+};
 
 export default App;
-=======
-export default App;
->>>>>>> 63ffb461710291c89847d0d27973987cb5886bb3
