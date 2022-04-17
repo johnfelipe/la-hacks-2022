@@ -3,7 +3,6 @@ import { Line } from "react-chartjs-2";
 import Chart from "chart.js/auto";
 import { StreamingPlugin, RealTimeScale } from "chartjs-plugin-streaming";
 Chart.register(StreamingPlugin, RealTimeScale);
-
 function App() {
 
   const data = {
