@@ -1,35 +1,47 @@
 # LA Hacks 2022 Project
 
-## Build Guideline
+# Build Guideline
 
-git clone https://github.com/yuesha-yc/la-hacks-2022.git
+### Before all, use Homebrew to install Node
 
-Go to backend directory
+`brew install node`
 
-cd backend
+### Install React if first time building
 
-Setup virtual environment
+`npm install`
 
-python3 -m venv venv
+### Clone this repo
 
-If you are on windows, use 
+`git clone https://github.com/yuesha-yc/la-hacks-2022.git`
 
-python -m venv <path>
+### Go to backend directory
 
-Next activate this environment
+`cd backend`
 
-source venv/bin/activate
+### Setup virtual environment
 
-Install packages
+`python3 -m venv venv`
 
-pip3 install flask tensorflow tqdm scikit-learn matplotlib
+### If you are on windows, use 
 
-# Run server on local host
+`python -m venv <path>`
 
-Run the command:
+### Next activate this environment
 
-python3 server.py
+`source venv/bin/activate`
 
+### Install packages
 
+`pip3 install flask tensorflow tqdm scikit-learn matplotlib`
+
+# Run Server
+
+### Run the command to start flask
+
+`python3 server.py`
+
+### Run the command to start React
+
+`npm start`
 
 

@@ -31,21 +31,28 @@ and its associated label (Set A or Set E).
 """
 def load_data():
     labeled_data = []
+    non_seizure_data = []
+    seizure_data = []
 
     for fname in tqdm(os.listdir(DATA_DIR_A)):
         data = np.loadtxt(DATA_DIR_A + fname)
         labeled_data.append([np.array(data), LABEL_A])
+        non_seizure_data.append([np.array(data), LABEL_A])
         
     for fname in tqdm(os.listdir(DATA_DIR_E)):
         data = np.loadtxt(DATA_DIR_E + fname)
         labeled_data.append([np.array(data), LABEL_E])
+        seizure_data.append([np.array(data), LABEL_E])
         
-    return labeled_data
+    return [labeled_data, non_seizure_data, seizure_data]
 
-all_data = load_data()
+loaded_labeled_data = load_data()
+all_data = loaded_labeled_data[0]
+non_seizure_data = loaded_labeled_data[1]
+seizure_data = loaded_labeled_data[2]
 
 print(f"There are {len(all_data)} files.")
-print(all_data[0])
+# print(all_data[0])
 
 
 """PROCESS DATA"""
@@ -117,5 +124,49 @@ def predict_label(data_index):
     formated_percentage = round(results[0][0] * 100, 2)
     return formated_percentage
 
+"""
+data_index: integer from 0 to 99
+"""
+def get_random_seizure_data():
+    data_index = np.random.randint(0, len(seizure_data))
+    fetched = seizure_data[data_index][0]
+    print("Fetched seizure data: " + str(fetched))
+    return fetched.tolist()
+
+"""
+data_index: integer from 0 to 99
+"""
+def get_random_non_seizure_data():
+    data_index = np.random.randint(0, len(non_seizure_data))
+    fetched = non_seizure_data[data_index][0]
+    print("Fetched non-seizure data: " + str(fetched))
+    return fetched.tolist()
+
+"""
+Returns an array of length 4097 randomly (seizure or non-seizure)
+"""
+def get_random_data():
+    data_index = np.random.randint(0, len(all_data))
+    fetched = all_data[data_index][0]
+    print("Fetched random data: " + str(fetched))
+    return fetched.tolist()
+
+"""
+Returns all of the seizure data.
+"""
+def get_all_seizure_data():
+    new_data = np.array([d[0] for d in seizure_data])
+    print("Fetched all seizure data" + str(new_data))
+    return new_data.tolist()
+
+"""
+Returns all of the non-seizure data.
+"""
+def get_all_non_seizure_data():
+    new_data = np.array([d[0] for d in non_seizure_data])
+    print("Fetched all non-seizure data" + str(new_data))
+    return new_data.tolist()
+
 if __name__ == "__main__":
-    print(predict_label(0))
+    get_all_seizure_data()
+
