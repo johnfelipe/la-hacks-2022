@@ -8,6 +8,12 @@
   <script src="script.js" charset="utf-8"></script>
 </head>
 <body>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script src="script.js" charset="utf-8"></script>
+  <script src="path/to/chartjs/dist/chart.min.js"></script>
+  <script src="path/to/luxon/dist/luxon.min.js"></script>
+  <script src="path/to/chartjs-adapter-luxon/dist/chartjs-adapter-luxon.min.js"></script>
+  <script src="path/to/chartjs-plugin-streaming/dist/chartjs-plugin-streaming.min.js"></script>
   <header>
     <section class="head">
       <div class="container flex1">
@@ -150,6 +156,11 @@
             </div>
           </div>
 
+
+          <div>
+            <canvas id="myChart"></canvas>
+          </div>
+
           <div class="bar">
             <div class="heading flex1">
               <h5>EEG Reports</h5>
@@ -158,8 +169,6 @@
                 <h4>Today</h4>
                 <button>Tommorrow</button>
               </div>
-            </div>
-            <div id="bars">
             </div>
           </div>
         </div>
@@ -250,7 +259,6 @@
     </div>
   </section>
   
-  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-  <script src="script.js" charset="utf-8"></script>
+  
 </body>
 </html>
