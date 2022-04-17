@@ -1,0 +1,7 @@
+.no-scrollbar::-webkit-scrollbar {
+	display: none;
+	}
+
+.h-a{
+	height: 66.666667%;
+}
