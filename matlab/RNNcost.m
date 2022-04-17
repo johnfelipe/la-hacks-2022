@@ -1,3 +1,5 @@
+% built and adapted from matlab tutorials
+
 function [cost, grad] = RNNcost(theta, input, output, hidden_size, lambda, gc)
 %
 input_size = size(input{1},1);

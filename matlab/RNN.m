@@ -1,4 +1,5 @@
 % RNN test
+% built and adapted from matlab tutorials
 
 function theta = RNN(input_size, hidden_size, output_size)
 avg = 0;
