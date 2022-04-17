@@ -165,30 +165,3 @@ var options = {
 
 var loac = new ApexCharts(document.querySelector("#loac"), options);
 loac.render();
-
-
-const config = {
-  type: 'line',
-  data: {
-    datasets: [
-      {
-        data: []
-      },
-      {
-        data: []
-      }
-    ]
-  },
-  options: {
-    scales: {
-      x: {
-        type: 'realtime'
-      }
-    }
-  }
-};
-
-const myChart = new Chart(
-  document.getElementById('myChart'),
-  config
-);
