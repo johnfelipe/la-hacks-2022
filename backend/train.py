@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+# Adapted from NeurotechX tutorial
+
 import numpy as np
 import os
 from tqdm import tqdm
@@ -8,9 +10,6 @@ from sklearn.utils import shuffle
 
 
 """LOAD DATA"""
-
-
-"""Finally, we load our data into the program. The data is stored as a giant list, which consists of tuples of the form ```(data, label)```."""
 
 # Set the directory names
 DATA_DIR_A = './Set A/'

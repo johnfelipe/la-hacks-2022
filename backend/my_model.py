@@ -1,9 +1,5 @@
-"""## Building the Model
-
-Finally, we are able to build our neural network. Here, we are using ```keras```, a high level API that allows for quick development of neural networks. The ```Sequential``` model lets us add layers incrementally to design the model and then create it using the ```compile``` method. 
-
-Feel free to play around with the layers themselves as well as the parameters that are associated with them, and be sure to check out the [Keras API Reference](https://keras.io/api/) for more details on the different layers you can add.
-"""
+## Building the Model
+# Adapted from NeurotechX tutorial
 
 from keras.models import Sequential
 from keras.layers import Input, Dense, Dropout, Activation
