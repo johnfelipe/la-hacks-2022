@@ -7,52 +7,50 @@ Chart.register(StreamingPlugin, RealTimeScale);
 function App() {
 
   const data = {
-    datasets: [{
-      label: "Dataset 1",
+    datasets: [
+      {
+        label: 'Dataset 1',
+        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        borderColor: 'rgb(255, 99, 132)',
+        borderDash: [8, 4],
+        fill: true,
+        data: []
+      }
+    ]
+  };
 
-        fill: false,
-        lineTension: 0.4,
-        backgroundColor: "#f44336",
-        borderColor: "#f44336",
-        borderJoinStyle: "miter",
-        pointRadius: 0,
-        showLine: true,
-        data: [],
-    }]
-  }
+  const onRefresh = chart => {
+    const now = Date.now();
+    chart.data.datasets.forEach(dataset => {
+      dataset.data.push({
+        x: now,
+        y: 100
+      });
+    });
+  };
   
   const options = {
     scales: {
-      xAxes: [
-        {
-          type: "realtime",
-          realtime: {
-            onRefresh: function () {
-              data.datasets[0].data.push({
-                x: Date.now(),
-                y: Math.random() * 100,
-              });
-            },
-            delay: 300,
-            refresh: 300,
-          },
+      x: [{
+        type: 'realtime',
+        title: {
+          display: true,
+          text: 'Time'
         },
-      ],
-      yAxes: [
-        {
-          scaleLabel: {
-            display: true,
-            fontFamily: "Arial",
-            labelString: "Moment",
-            fontSize: 20,
-            fontColor: "#6c757d",
-          },
-          ticks: {
-            max: 100,
-            min: 0,
-          },
-        },
-      ],
+        realtime: {
+          duration: 20000,
+          refresh: 1000,
+          delay: 2000,
+          onRefresh: onRefresh
+        }
+      }],
+      y: [{
+        type: 'realtime',
+        title: {
+          display: true,
+          text: 'Value',
+        }
+      }]
     }
   }
 
